@@ -37,7 +37,7 @@ $user =  App\Models\User::find($users);
 					</div>
 				</div>
 				<ul class="metismenu" id="menu">
-                    <li><a href="javascript:void()" aria-expanded="false">
+                    <li><a href="{{route('admin.dashboard')}}" aria-expanded="false">
 							<i class="flaticon-025-dashboard"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>

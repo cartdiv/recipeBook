@@ -18,8 +18,10 @@ use App\Http\Controllers\Admin\AdminController;
 Route::middleware(['auth','Roles:admin'])->group(function(){
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin/dashboard', 'AdminDashboard')->name('admin.dashboard');
+        Route::get('/admin/profile', 'AdminProfile')->name('admin.profile');
     });
 });
+
 Route::get('/', function () {
     return view('frontend.index');
 });
