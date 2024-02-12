@@ -45,35 +45,38 @@
 							<div class="card-header">
 								<h6 class="title">Account setup</h6>
 							</div>
-							<form class="profile-form">
+							<form class="profile-form" method="POST" action="{{route('update.admin.profile')}}">
+								@csrf
+
 								<div class="card-body">
 									<div class="row">
 										<div class="col-sm-6 m-b30">
 											<label class="form-label">Name</label>
-											<input type="text" class="form-control" value="{{$userid->name}}">
+											<input type="text" class="form-control" name="name" value="{{$userid->name}}">
 										</div>
 										
 										<div class="col-sm-6 m-b30">
 											<label class="form-label">Email</label>
-											<input type="text" class="form-control" value="{{$userid->email}}">
+											<input type="text" class="form-control" name="email" value="{{$userid->email}}">
 										</div>
 										<div class="col-sm-6 m-b30">
 											<label class="form-label">Phone number</label>
-											<input type="text" class="form-control" value="{{$userid->phone}}">
+											<input type="text" class="form-control" name="phone" value="{{$userid->phone}}">
 										</div>
+
 										<div class="col-sm-6 m-b30">
-											<label class="form-label">Gender</label>
-											<select class="selectpicker nice-select default-select form-control wide mh-auto">
-												<option>Male</option>
-												<option>Female</option>
-											</select>
+											<label class="form-label">Profile photo</label>
+											<input type="file" class="form-control" id="image" name="photo" >
 										</div>
+
+										
 									
 										<div class="col-sm-6 m-b30">
 											<label class="form-label ">Country</label>
-											<select class="selectpicker nice-select default-select form-control wide mh-auto">
+											<select class="selectpicker nice-select default-select form-control wide mh-auto" name="country">
+												
 												@foreach ($countries as $country)
-                                                    <option value="{{$country->id}}">{{$country->name}} - {{$country->code}}</option>
+                                                    <option value="{{$country->id}}" {{ $country->id == $userid->country ? 'selected' : '' }}>{{$country->name}} - {{$country->code}}</option>
 													
                                                 @endforeach
 											</select>

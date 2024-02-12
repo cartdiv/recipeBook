@@ -29,6 +29,9 @@
 	
 	<!-- Globle CSS -->
     <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
+
+	{{-- Toaster notification --}}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	
 </head>
 <body>
@@ -371,6 +374,40 @@ function JobickCarousel()
 			JobickCarousel();
 		}, 1000); 
 	});
+
+	
 </script>
+	{{-- Toaster notification --}}
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break; 
+ }
+ @endif 
+</script>
+
+{{-- =========================Add Sweetalert ======================= --}}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+ <script src="{{ asset('backend/js/code/code.js') }}"></script>
+ <script src="{{ asset('backend/js/code/validate.min.js') }}"></script>
 </body>
 </html>

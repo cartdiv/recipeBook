@@ -26,6 +26,9 @@
         n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
       }(window, document);
     </script>
+    {{-- Toaster notification --}}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
     <link href="" rel="shortcut icon" type="image/x-icon" />
     <link href="" rel="apple-touch-icon" />
   </head>
@@ -36,7 +39,43 @@
 
 
 
+
+
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65870aa8e22b9fb1eeeb61fd" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="{{asset('frontend/assets/js/main.js')}}" type="text/javascript"></script>
+
+    {{-- Toaster notification --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break; 
+ }
+ @endif 
+</script>
+
+{{-- =========================Add Sweetalert ======================= --}}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+ <script src="{{ asset('backend/js/code/code.js') }}"></script>
+ <script src="{{ asset('backend/js/code/validate.min.js') }}"></script>
+ 
   </body>
 </html>
