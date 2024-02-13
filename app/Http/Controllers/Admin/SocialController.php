@@ -20,10 +20,15 @@ class SocialController extends Controller
         $user = User::where('google_id', $googleUser->id)->first();
         if(!$user)
         {
-            $user = User::create(['name' => $googleUser->name, 'email' => $googleUser->email, 'password' => \Hash::make(rand(100000,999999))]);
+            $user = User::create([
+                'name' => $googleUser->name, 
+                'email' => $googleUser->email, 
+                'password' => \Hash::make('password')
+            ]);
+                
          Auth::login($user);
          $nottification = array(
-            'message' => 'You have logged in succesfully 🤗',
+            'message' => 'You have logged in succesfully 🤗 please add a password to your account',
             'alert-type' => 'success',
         );
 

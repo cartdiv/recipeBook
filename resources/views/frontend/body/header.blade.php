@@ -37,10 +37,16 @@
             <div class="brix---hamburger-menu-bar-bottom"></div>
             <div class="brix---hamburger-menu-bar-bottom"></div>
           </div>
-       
-                 <div class="brix---btn-header-hidden-on-mbl second"><a href="{{route('login')}}" class="button-3 w-button">Login</a></div>
-                 <div class="brix---btn-header-hidden-on-mbl"><a href="{{'register'}}" class="brix---btn-primary-small w-button">Get Started</a></div>
-            
+          @if(auth()->check())
+              @if(auth()->user()->role == 'admin')
+                <div class="brix---btn-header-hidden-on-mbl"><a href="{{route('admin.dashboard')}}" class="brix---btn-primary-small w-button">Dashboard</a></div>
+              @else
+                <div class="brix---btn-header-hidden-on-mbl"><a href="{{route('dashboard')}}" class="brix---btn-primary-small w-button">Dashboard</a></div>
+              @endif
+          @else
+              <div class="brix---btn-header-hidden-on-mbl second"><a href="{{route('login')}}" class="button-3 w-button">Login</a></div>
+              <div class="brix---btn-header-hidden-on-mbl"><a href="{{'register'}}" class="brix---btn-primary-small w-button">Get Started</a></div>
+          @endif
                  {{-- <div class="brix---btn-header-hidden-on-mbl second"><a href="{{route('login')}}" class="button-3 w-button">Hey David</a></div> --}}
        
               
