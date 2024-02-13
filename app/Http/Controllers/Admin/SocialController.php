@@ -16,26 +16,17 @@ class SocialController extends Controller
         // google callback
     public function googleLoginOrRegister(){
 
-        $user = Socialite::driver('google')->stateless()->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
+        $user = User::where('google_id', $googleUser->id)->first();
+        if(!$user)
+        {
+            $user = User::create(['name' => $googleUser->name, 'email' => $googleUser->email, 'password' => \Hash::make(rand(100000,999999))]);
+        }
 
-        $this->_registerOrLoginGoogleUser($user);
-        // Return home after login 
+        Auth::login($user);
+
         return redirect()->route('dashboard');
-
     }
 
-    protected function _registerOrLoginGoogleUser($incomingUser){
-
-        $user = User::where('google_id', $incomingUser->id)->first();
-        if (!$user){
-        $user = new User();
-        $user->name = $incomingUser->name;
-        $user->email = $incomingUser->email;
-        $user->google_id = $incomingUser->id;
-        $user->password = encrypt ('password'); //make password nullable
-        $user->save;
-        }
-        Auth::login($user);
-        }
     //
 }
