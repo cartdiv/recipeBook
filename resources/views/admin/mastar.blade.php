@@ -30,6 +30,13 @@
 	<!-- Globle CSS -->
     <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
 
+	 <!-- Datatable -->
+	 <link href="{{asset('backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+	 <!-- Custom Stylesheet -->
+ 	<link href="{{asset('backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
+
+
+
 	{{-- Toaster notification --}}
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	
@@ -409,5 +416,15 @@ function JobickCarousel()
 
  <script src="{{ asset('backend/js/code/code.js') }}"></script>
  <script src="{{ asset('backend/js/code/validate.min.js') }}"></script>
+
+	
+    <!-- Datatable -->
+    <script src="{{ asset('backend/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/js/plugins-init/datatables.init.js') }}"></script>
+
+	<script src="{{ asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+
+    <script src="{{ asset('backend/js/custom.min.js') }}"></script>
+	<script src="{{ asset('backend/js/dlabnav-init.js') }}"></script>
 </body>
 </html>

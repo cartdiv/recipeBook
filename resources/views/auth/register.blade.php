@@ -25,7 +25,7 @@
             <div class="ms-form-divider-line"></div>
             <div class="ms-form-divider-text">OR</div>
             <div class="ms-form-divider-line"></div>
-          </div><a data-ms-auth-provider="google" href="#" class="ms-social-button w-inline-block">
+          </div><a data-ms-auth-provider="google" href="{{ route('login.google') }}" class="ms-social-button w-inline-block">
             <div class="ms-social-inner ms-is-center"><img alt="" loading="lazy" src="https://assets-global.website-files.com/65870aa8e22b9fb1eeeb61fd/65b80cadf523b362cbc0a3c9_google.svg" class="ms-social-image" />
               <div data-ms-auth-connected-text="Disconnect Google" class="ms-social-text">Continue with Google</div>
             </div>

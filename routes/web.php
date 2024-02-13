@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,14 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
+//Google Authentication Routes
+Route::controller(SocialController::class)->group(function(){
+    Route::get('auth/google', 'googleRedirect')->name('login.google');
+    Route::get('auth/google/callback', 'googleLoginOrRegister');
+});
+
+
+
 Route::middleware(['auth','Roles:admin'])->group(function(){
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin/dashboard', 'AdminDashboard')->name('admin.dashboard');
@@ -23,7 +33,16 @@ Route::middleware(['auth','Roles:admin'])->group(function(){
         Route::get('/admin/change/password', 'AdminChangePassword')->name('admin.change.password');
         Route::post('/update/admin/password', 'UpdateAdminPassword')->name('update.admin.password');
         Route::get('/admin/logout', 'AdminLogout')->name('admin.logout');
+        Route::get('/all/user', 'AllUser')->name('all.user');
+
     });
+
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/all/user', 'AllUser')->name('all.user');
+        Route::get('/active/user', 'ActiveUser')->name('active.user');
+        Route::get('/inactive/user', 'InactiveUser')->name('inactive.user');
+    });
+
 });
 
 Route::get('/', function () {

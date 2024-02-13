@@ -114,5 +114,6 @@ class AdminController extends Controller
         return redirect('/')->with($nottification);
         # code...
     }
+
     //
 }
