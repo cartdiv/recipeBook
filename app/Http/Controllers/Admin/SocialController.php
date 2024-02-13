@@ -16,7 +16,7 @@ class SocialController extends Controller
         // google callback
     public function googleLoginOrRegister(){
 
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
 
         $this->_registerOrLoginGoogleUser($user);
         // Return home after login 
