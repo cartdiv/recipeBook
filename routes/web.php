@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\User\UserController as AppUsers;
+use App\Http\Controllers\Frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::controller(SocialController::class)->group(function(){
     Route::get('auth/google', 'googleRedirect')->name('login.google');
     Route::get('auth/google/callback', 'googleLoginOrRegister');
 });
+
 
 
 

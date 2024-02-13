@@ -11,7 +11,7 @@
             <div data-w-id="5febec19-7afc-e297-314d-99792e5a48b1" style="opacity:0;-webkit-transform:translate3d(-500px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-500px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-500px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-500px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="w-layout-blockcontainer w-container">
               <h1 class="heading-12">Home of variouse recipe&#x27;s for your favorite dishes</h1>
             </div>
-            <div class="text-block-10">Create an account and start posting recipes to various foods you know. its easy to get started and start uploading recipes to your best foods here for your online friends.</div><a data-w-id="6480bec8-9365-52c7-4c9d-0e292706b7c7" style="opacity:0" href="/filter/view-blog" class="button-4 center-button w-button">Get Started</a>
+            <div class="text-block-10">Create an account and start posting recipes to various foods you know. its easy to get started and start uploading recipes to your best foods here for your online friends.</div><a data-w-id="6480bec8-9365-52c7-4c9d-0e292706b7c7" style="opacity:0" href="{{'register'}}" class="button-4 center-button w-button">Get Started</a>
           </div>
         </div>
         <div id="w-node-d0e6cb33-af49-bb84-6ef4-299cfe1ab351-51b88500" class="w-layout-cell">

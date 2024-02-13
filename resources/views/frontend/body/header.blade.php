@@ -6,7 +6,7 @@
         <div class="brix---header-middle-col">
           <nav role="navigation" class="brix---header-menu-wrapper w-nav-menu">
             <ul role="list" class="brix---header-nav-menu-list">
-              <li class="brix---header-nav-list-item-middle"><a href="/filter/view-recipes" class="brix---header-nav-link w-nav-link">Home</a></li>
+              <li class="brix---header-nav-list-item-middle"><a href="" class="brix---header-nav-link w-nav-link">Home</a></li>
               <li class="brix---header-nav-list-item-middle">
                 <div data-hover="true" data-delay="0" class="brix---dropdown-wrapper w-dropdown">
                   <div class="brix---dropdown-toggle w-dropdown-toggle">
@@ -19,7 +19,13 @@
                   <nav class="brix---dropdown-column-wrapper w-dropdown-list">
                     <div class="brix---dropdown-card">
                       <div class="brix---dropdown-pd">
-                        <div class="w-layout-grid brix---dropdown-links-grid"><a href="#" class="brix---dropdown-link w-dropdown-link">Breakfast recipes</a><a href="#" class="brix---dropdown-link w-dropdown-link">Lunch recipes</a><a href="#" class="brix---dropdown-link w-dropdown-link">Dinner recipes</a><a href="#" class="brix---dropdown-link w-dropdown-link">Appetizer recipes</a><a href="#" class="brix---dropdown-link w-dropdown-link">Salad recipes</a><a href="#" class="brix---dropdown-link w-dropdown-link">Soup recipes</a></div>
+                        <div class="w-layout-grid brix---dropdown-links-grid">
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Breakfast recipes</a>
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Lunch recipes</a>
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Dinner recipes</a>
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Appetizer recipes</a>
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Salad recipes</a>
+                          <a href="#" class="brix---dropdown-link w-dropdown-link">Soup recipes</a></div>
                       </div>
                     </div>
                   </nav>
@@ -27,7 +33,19 @@
               </li>
               <li class="brix---header-nav-list-item-middle"><a href="/filter/blogs" class="brix---header-nav-link w-nav-link">Blogs</a></li>
               <li class="brix---header-nav-list-item-middle"><a href="/filter/contact" class="brix---header-nav-link w-nav-link">Contact</a></li>
-              <li class="brix---header-nav-list-item-show-in-mbl"><a href="#" class="brix---btn-primary-small w-button">Get started</a></li>
+              @if(auth()->check())
+                    @if(auth()->user()->role == 'admin')
+                      <li class="brix---header-nav-list-item-show-in-mbl"><a href="{{route('admin.dashboard')}}" class="brix---btn-primary-small w-button">Dashboard</a></li>  
+                      @else
+                      <li class="brix---header-nav-list-item-show-in-mbl"><a href="{{route('dashboard')}}" class="brix---btn-primary-small w-button">Dashboard</a></li>
+                    @endif
+                  @else
+              <li class="brix---header-nav-list-item-show-in-mbl"><a href="{{route('login')}}" class="brix---btn-primary-small w-button">Login</a></li>
+              <li class="brix---header-nav-list-item-show-in-mbl"><a href="{{'register'}}" class="brix---btn-primary-small w-button">Get started</a></li>
+              @endif
+
+              
+              
             </ul>
           </nav>
         </div>
@@ -44,7 +62,7 @@
                 <div class="brix---btn-header-hidden-on-mbl"><a href="{{route('dashboard')}}" class="brix---btn-primary-small w-button">Dashboard</a></div>
               @endif
           @else
-              <div class="brix---btn-header-hidden-on-mbl second"><a href="{{route('login')}}" class="button-3 w-button">Login</a></div>
+              <div class="brix---btn-header-hidden-on-mbl"><a href="{{route('login')}}" class="button-3 w-button">Login</a></div>
               <div class="brix---btn-header-hidden-on-mbl"><a href="{{'register'}}" class="brix---btn-primary-small w-button">Get Started</a></div>
           @endif
                  {{-- <div class="brix---btn-header-hidden-on-mbl second"><a href="{{route('login')}}" class="button-3 w-button">Hey David</a></div> --}}
