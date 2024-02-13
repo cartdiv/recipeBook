@@ -21,11 +21,24 @@ class SocialController extends Controller
         if(!$user)
         {
             $user = User::create(['name' => $googleUser->name, 'email' => $googleUser->email, 'password' => \Hash::make(rand(100000,999999))]);
+         Auth::login($user);
+         $nottification = array(
+            'message' => 'You have logged in succesfully 🤗',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('dashboard')->with($nottification);
+        }else{
+            $nottification = array(
+                'message' => 'Looks like you already own an account 🤗',
+                'alert-type' => 'success',
+            );
+    
+            return redirect()->route('login')->with($nottification);
         }
 
-        Auth::login($user);
-
-        return redirect()->route('dashboard');
+       
+       
     }
 
     //
