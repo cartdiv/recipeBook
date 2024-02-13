@@ -23,6 +23,7 @@ class SocialController extends Controller
             $user = User::create([
                 'name' => $googleUser->name, 
                 'email' => $googleUser->email, 
+                'google_id' => $googleUser->id, 
                 'password' => \Hash::make('password')
             ]);
                 
