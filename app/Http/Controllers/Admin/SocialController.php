@@ -14,7 +14,7 @@ class SocialController extends Controller
         return Socialite::driver('google')->redirect();
     }
         // google callback
-    public function googleCallback(){
+    public function googleLoginOrRegister(){
 
         $user = Socialite::driver('google')->user();
 
